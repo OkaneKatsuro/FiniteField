@@ -15,7 +15,7 @@ class FieldElement:
          return self.num == other.num and self.prime == other.prime
 
      def __add__(self, other):
-         if self.prime != other.prime:  # <1>
+         if self.prime != other.prime: 
              raise TypeError('Cannot add two numbers in different Fields')
          num = (self.num + other.num) % self.prime  
          return self.__class__(num, self.prime)  
@@ -33,6 +33,6 @@ class FieldElement:
          return self.__class__(num, self.prime)
 
      def __pow__(self, exponent):
-         n = exponent % (self.prime - 1)  # <1>
+         n = exponent % (self.prime - 1)  
          num = pow(self.num, n, self.prime)
          return self.__class__(num, self.prime)
